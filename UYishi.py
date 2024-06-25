@@ -14,8 +14,8 @@ def aniqlagich(s):
 
     # Jinsi
     if len(parts) >= 3:
-        if parts[-2].endswith('a') or parts[-2].endswith('ha'):
-            jinsi = "erkak"
+        if parts[-3].endswith('a') or parts[-3].endswith('va'):
+            jinsi = "ayol"
         else:
             jinsi = "erkak"
     else:
@@ -28,17 +28,20 @@ def aniqlagich(s):
     if len(parts) >= 1:
         result.append(parts[0])
     if len(parts) >= 2:
+        result.append(parts[-3])
+    if len(parts) >= 3:
+        result.append(parts[-2])
+    if len(parts) >= 4:
         result.append(parts[-1])
-
     
     return result
 
 
-s = "Shukrullo Turgunov"
-print(aniqlagich(s))  # ["erkak", "Shukrullo", "Turgunov"]
+s = "Diyora Axmedova Najmiddin qizi"
+print(aniqlagich(s))  # ["ayol", "Diyora", "Axmedova"]
 
-s = "Valixon Muxtorov"
+s = "Valixon Muxtorov Xamidjon og'li"
 print(aniqlagich(s))  # ["erkak", "Valixon", "Muxtorov"]
 
-s = "Xamidov Behruzbek"
+s = "Xamidov Behruzbek Valixon og'li"
 print(aniqlagich(s))  # ["erkak", "Behruzbek", "Xamidov"]
